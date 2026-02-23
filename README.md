@@ -67,9 +67,7 @@ terraform destroy # Suppression de l'infrastructure
 
 Résultat de la commande `terraform plan` montrant les 16 ressources Azure qui seront créées : Resource Group, VNET, Subnet, NSG avec ses règles firewall, 2 NICs, 2 VMs Linux Ubuntu, Load Balancer, Backend Pool, Health Probe et Load Balancing Rule. Aucune erreur détectée.
 
-```
-Plan: 16 to add, 0 to change, 0 to destroy.
-```
+![terraform plan](captures/captures_plan.png)
 
 ---
 
@@ -77,12 +75,7 @@ Plan: 16 to add, 0 to change, 0 to destroy.
 
 Résultat de la commande `terraform apply` confirmant la création réussie des 16 ressources Azure en région Switzerland North. L'output affiche l'IP publique du Load Balancer : `20.203.209.247`.
 
-```
-Apply complete! Resources: 16 added, 0 changed, 0 destroyed.
-
-Outputs:
-lb_public_ip = "20.203.209.247"
-```
+![terraform apply](captures/captures_apply.png)
 
 ---
 
@@ -90,16 +83,7 @@ lb_public_ip = "20.203.209.247"
 
 Test d'accès HTTP via la commande `curl http://20.203.209.247` répétée plusieurs fois. On voit le Load Balancer distribuer le trafic alternativement entre VM-1 et VM-2, ce qui prouve que Nginx est bien installé sur les deux machines et que le Load Balancer fonctionne correctement.
 
-```
-C:\Users\nouhm\TP-Terraform>curl http://20.203.209.247
-<h1>Hello from VM-2 (tp-azure)</h1>
-
-C:\Users\nouhm\TP-Terraform>curl http://20.203.209.247
-<h1>Hello from VM-1 (tp-azure)</h1>
-
-C:\Users\nouhm\TP-Terraform>curl http://20.203.209.247
-<h1>Hello from VM-2 (tp-azure)</h1>
-```
+![acces web load balancer](captures/captures_curl.png)
 
 ---
 
@@ -107,9 +91,7 @@ C:\Users\nouhm\TP-Terraform>curl http://20.203.209.247
 
 Résultat de la commande `terraform destroy` confirmant la suppression complète des 16 ressources Azure, évitant ainsi toute consommation inutile du crédit étudiant Azure.
 
-```
-Destroy complete! Resources: 16 destroyed.
-```
+![terraform destroy](captures/captures_destroy.png)
 
 ---
 
