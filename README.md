@@ -63,6 +63,14 @@ terraform destroy # Suppression de l'infrastructure
 
 ## 📸 Captures d'écran
 
+### Capture 0 — terraform init
+
+Initialisation du projet Terraform avec la commande `terraform init`. Le provider `hashicorp/azurerm v4.61.0` est téléchargé et installé avec succès.
+
+![terraform init](captures/captures_init.jpg)
+
+---
+
 ### Capture 1 — terraform plan
 
 Résultat de la commande `terraform plan` montrant les 16 ressources Azure qui seront créées : Resource Group, VNET, Subnet, NSG avec ses règles firewall, 2 NICs, 2 VMs Linux Ubuntu, Load Balancer, Backend Pool, Health Probe et Load Balancing Rule. Aucune erreur détectée.
