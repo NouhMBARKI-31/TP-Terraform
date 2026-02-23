@@ -67,7 +67,7 @@ terraform destroy # Suppression de l'infrastructure
 
 Résultat de la commande `terraform plan` montrant les 16 ressources Azure qui seront créées : Resource Group, VNET, Subnet, NSG avec ses règles firewall, 2 NICs, 2 VMs Linux Ubuntu, Load Balancer, Backend Pool, Health Probe et Load Balancing Rule. Aucune erreur détectée.
 
-![terraform plan](captures/captures_plan.png)
+![terraform plan](captures/captures_plan.jpg)
 
 ---
 
@@ -75,7 +75,7 @@ Résultat de la commande `terraform plan` montrant les 16 ressources Azure qui s
 
 Résultat de la commande `terraform apply` confirmant la création réussie des 16 ressources Azure en région Switzerland North. L'output affiche l'IP publique du Load Balancer : `20.203.209.247`.
 
-![terraform apply](captures/captures_apply.png)
+![terraform apply](captures/captures_apply.jpg)
 
 ---
 
@@ -83,7 +83,7 @@ Résultat de la commande `terraform apply` confirmant la création réussie des 
 
 Test d'accès HTTP via la commande `curl http://20.203.209.247` répétée plusieurs fois. On voit le Load Balancer distribuer le trafic alternativement entre VM-1 et VM-2, ce qui prouve que Nginx est bien installé sur les deux machines et que le Load Balancer fonctionne correctement.
 
-![acces web load balancer](captures/captures_curl.png)
+![acces web load balancer](captures/captures_curl.jpg)
 
 ---
 
@@ -91,7 +91,7 @@ Test d'accès HTTP via la commande `curl http://20.203.209.247` répétée plusi
 
 Résultat de la commande `terraform destroy` confirmant la suppression complète des 16 ressources Azure, évitant ainsi toute consommation inutile du crédit étudiant Azure.
 
-![terraform destroy](captures/captures_destroy.png)
+![terraform destroy](captures/captures_destroy.jpg)
 
 ---
 
